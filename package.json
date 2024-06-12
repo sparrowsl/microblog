@@ -4,8 +4,8 @@
 	"description": "Simple blog application model after the microblog by Flask Mega Tutorial",
 	"main": "",
 	"scripts": {
-		"lint": "biome lint ./apps",
-		"format": "biome format --write ./apps",
+		"lint": "biome lint --fix ./apps/client & biome lint --fix ./apps/server",
+		"format": "biome format --write ./apps/client & biome format --write ./apps/server",
 		"prepare": "husky"
 	},
 	"repository": {
