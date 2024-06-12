@@ -1,0 +1,24 @@
+{
+  "name": "microblog",
+  "version": "0.0.1",
+  "description": "Simple blog application model after the microblog by Flask Mega Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sparrowsl/microblog.git"
+  },
+  "author": "Sparrow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sparrowsl/microblog/issues"
+  },
+  "homepage": "https://github.com/sparrowsl/microblog#readme",
+  "workspaces": [
+    "apps/client",
+    "apps/server",
+    "packages"
+  ]
+}
