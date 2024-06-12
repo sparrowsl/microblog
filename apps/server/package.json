@@ -1,12 +1,12 @@
 {
-	"name": "server",
-	"version": "1.0.0",
-	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "node --watch src/index.js"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"description": ""
+	"dependencies": {
+		"@hono/node-server": "^1.3.3",
+		"hono": "^3.11.11"
+	},
+	"devDependencies": {
+		"typescript": "^5.0.0"
+	}
 }
