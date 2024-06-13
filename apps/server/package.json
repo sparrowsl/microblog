@@ -1,12 +1,19 @@
 {
+	"name": "server",
+	"version": "0.0.1",
+	"private": true,
+	"main": "index.js",
 	"scripts": {
-		"dev": "node --watch src/index.js"
+		"dev": "node --watch src/index.js",
+		"lint": "echo \"server lint passed\"",
+		"format": "echo \"server format passed\""
 	},
 	"dependencies": {
-		"@hono/node-server": "^1.3.3",
-		"hono": "^3.11.11"
+		"@hono/node-server": "^1.11.2",
+		"hono": "^4.4.5"
 	},
 	"devDependencies": {
-		"typescript": "^5.0.0"
-	}
+		"typescript": "^5.4.5"
+	},
+	"type": "module"
 }

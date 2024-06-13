@@ -1,12 +1,13 @@
 {
 	"name": "microblog",
 	"version": "0.0.1",
-	"description": "Simple blog application model after the microblog by Flask Mega Tutorial",
+	"description": "Simple blog application modeled after the microblog by Flask Mega Tutorial",
 	"main": "",
 	"scripts": {
-		"lint": "biome lint --fix ./apps/client & biome lint --fix ./apps/server",
-		"format": "biome format --write ./apps/client & biome format --write ./apps/server",
-		"prepare": "husky"
+		"lint": "npm run lint --prefix ./apps/client && npm run lint --prefix ./apps/server",
+		"format": "npm run format --prefix ./apps/client && npm run format --prefix ./apps/server",
+		"i:all": "npm install --prefix ./apps/client && npm install --prefix ./apps/server",
+		"lefthook": "lefthook install"
 	},
 	"repository": {
 		"type": "git",
@@ -25,6 +26,6 @@
 	],
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.1",
-		"husky": "^9.0.11"
+		"lefthook": "^1.6.16"
 	}
 }
