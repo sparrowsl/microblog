@@ -10,7 +10,7 @@ output:
   - skips
 
 pre-commit:
-  parallel: true
+  # parallel: true
   commands:
     client-lint:
       root: "apps/client/"
