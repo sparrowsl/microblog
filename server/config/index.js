@@ -4,6 +4,7 @@ const config_schema = z.object({
 	PORT: z.number({ coerce: true, message: "PORT is missing" }).default(5000),
 });
 
+/** @returns {{PORT: number}} */
 function check_config() {
 	const { success, data, error } = config_schema.safeParse(process.env);
 
