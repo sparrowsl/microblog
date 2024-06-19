@@ -2,11 +2,8 @@
 	"name": "microblog",
 	"version": "0.0.1",
 	"description": "Simple blog application modeled after the microblog by Flask Mega Tutorial",
-	"main": "",
 	"scripts": {
-		"lint": "npm run lint --prefix ./apps/client && npm run lint --prefix ./apps/server",
-		"format": "npm run format --prefix ./apps/client && npm run format --prefix ./apps/server",
-		"i:all": "npm install --prefix ./apps/client && npm install --prefix ./apps/server",
+		"i:all": "npm install --prefix ./client && npm install --prefix ./server",
 		"lefthook": "lefthook install"
 	},
 	"repository": {
@@ -19,11 +16,6 @@
 		"url": "https://github.com/sparrowsl/microblog/issues"
 	},
 	"homepage": "https://github.com/sparrowsl/microblog#readme",
-	"workspaces": [
-		"apps/client",
-		"apps/server",
-		"packages"
-	],
 	"devDependencies": {
 		"lefthook": "^1.6.16"
 	}

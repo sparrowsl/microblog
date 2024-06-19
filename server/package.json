@@ -5,14 +5,15 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "node --watch src/index.js",
-		"lint": "echo \"server lint passed\"",
-		"format": "echo \"server format passed\""
+		"lint": "biome lint .",
+		"format": "biome format ."
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.11.2",
 		"hono": "^4.4.5"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^1.0.1",
 		"typescript": "^5.4.5"
 	},
 	"type": "module"

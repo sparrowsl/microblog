@@ -9,10 +9,11 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"test": "vitest run",
-		"lint": "echo \"client lint passed\"",
-		"format": "echo \"client format passed\""
+		"lint": "biome lint .",
+		"format": "biome format ."
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^1.0.1",
 		"@sveltejs/adapter-node": "^5.0.1",
 		"@sveltejs/kit": "^2.5.10",
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
