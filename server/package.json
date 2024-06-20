@@ -1,21 +1,21 @@
 {
-	"name": "server",
-	"version": "0.0.1",
-	"private": true,
-	"main": "index.js",
-	"scripts": {
-		"dev": "node --watch src/index.js",
-		"lint": "biome lint .",
-		"format": "biome format ."
-	},
-	"dependencies": {
-		"@hono/node-server": "^1.11.2",
-		"hono": "^4.4.5",
-		"zod": "^3.23.8"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.0.1",
-		"typescript": "^5.4.5"
-	},
-	"type": "module"
+  "name": "server",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch src/",
+    "lint": "biome lint .",
+    "format": "biome format ."
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.11.2",
+    "hono": "^4.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.0.1",
+    "typescript": "^5.4.5"
+  },
+  "type": "module"
 }
