@@ -1,15 +1,13 @@
-/** @type {import("./$types").PageServerLoad} */
-export function load() {
-	const posts = [
-		{
-			author: { username: "John" },
-			body: "Beautiful day in Portland!",
-		},
-		{
-			author: { username: "Susan" },
-			body: "The Avengers movie was so cool!",
-		},
-	];
+import { API_HOST } from "$env/static/private";
 
-	return { posts };
+/** @type {import("./$types").PageServerLoad} */
+export async function load({ fetch }) {
+  const req = await fetch(`${API_HOST}/posts`);
+  const { posts } = await req.json();
+
+  if (!req.ok) {
+    return { posts: [] };
+  }
+
+  return { posts };
 }

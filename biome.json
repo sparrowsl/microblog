@@ -63,8 +63,7 @@
 			"nursery": {
 				"recommended": true,
 				"noDuplicateJsonKeys": "error",
-				"noDuplicateElseIf": "error",
-				"noUndeclaredDependencies": "error"
+				"noDuplicateElseIf": "error"
 			}
 		}
 	}
