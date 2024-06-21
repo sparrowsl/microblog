@@ -10,6 +10,7 @@
 
 	<input
 		{...props}
+		required={props.required === undefined}
 		id={props.name || props.id}
 		type={props.type || "text"}
 		class="{props.class} input-sm rounded"
