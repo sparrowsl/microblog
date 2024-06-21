@@ -7,10 +7,10 @@
 	import Input from "$lib/components/Input.svelte";
 </script>
 
-<main>
+<main class="container max-w-2xl mx-auto">
 	<h1>Sign In</h1>
 	<form
-		action=""
+		novalidate
 		method="post"
 		use:enhance={() => {
 			return async ({ result }) => {
@@ -22,11 +22,11 @@
 			};
 		}}
 	>
-		<fieldset>
+		<fieldset class="grid gap-3">
 			<Input label="Username" name="username" required={false} />
 			<Input label="Password" name="password" type="password" />
 
-			<label for="remember" class="flex items-center gap-3">
+			<label for="remember" class="flex items-center gap-3 w-fit">
 				<input
 					type="checkbox"
 					class="checkbox checkbox-sm"
@@ -37,7 +37,7 @@
 			</label>
 
 			<!-- TODO: add content here -->
-			<Button></Button>
+			<Button class="w-fit"></Button>
 		</fieldset>
 	</form>
 </main>

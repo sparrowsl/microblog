@@ -29,5 +29,8 @@
 		"vitest": "^1.6.0"
 	},
 	"type": "module",
-	"engineStrict": true
+	"engineStrict": true,
+	"dependencies": {
+		"zod": "^3.23.8"
+	}
 }
