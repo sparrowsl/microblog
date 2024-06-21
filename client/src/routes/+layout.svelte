@@ -1,5 +1,7 @@
 <script>
 import "../app.css";
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import Navbar from "../lib/components/Navbar.svelte";
 
 /** @type {{children: import("svelte").Snippet}} */
 // biome-ignore lint/correctness/noUnusedVariables: <explanation>
@@ -11,6 +13,6 @@ const { children } = $props();
 <title>Home Page | Microblog</title>
 </svelte:head>
 
-<div>Microblog: <a href="/">Home</a></div>
+<Navbar/>
 <hr>
 {@render children?.()}
