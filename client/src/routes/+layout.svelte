@@ -11,4 +11,6 @@ const { children } = $props();
 <title>Home Page | Microblog</title>
 </svelte:head>
 
+<div>Microblog: <a href="/">Home</a></div>
+<hr>
 {@render children?.()}

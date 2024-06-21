@@ -1,6 +1,9 @@
 {
 	"extends": ["../biome.json"],
 	"formatter": {
-		"ignore": [".svelte-kit", "static"]
+		"ignore": [".svelte-kit/", "static"]
+	},
+	"linter": {
+		"ignore": ["node_modules", ".svelte-kit"]
 	}
 }
