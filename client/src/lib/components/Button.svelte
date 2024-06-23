@@ -6,7 +6,7 @@ const { children, ...props } = $props();
 </script>
 
 <button {...props} class="{props.class} btn btn-sm">
-  {#if children?.()}
+  {#if children}
     {@render children()}
   {:else}
     Click Me
