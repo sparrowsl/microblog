@@ -8,10 +8,13 @@
 		"lint": "biome lint .",
 		"format": "biome format --write .",
 		"db:push": "drizzle-kit push",
-		"db:migrate": "drizzle-kit migrate"
+		"db:migrate": "drizzle-kit migrate",
+		"db:drop": "drizzle-kit drop",
+		"db:generate": "drizzle-kit generate"
 	},
 	"dependencies": {
 		"@hono/node-server": "^1.11.2",
+		"dotenv": "^16.4.5",
 		"drizzle-orm": "^0.31.2",
 		"hono": "^4.4.5",
 		"mysql2": "^3.10.1",
