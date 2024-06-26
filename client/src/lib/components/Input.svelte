@@ -5,13 +5,13 @@
 	const { label = "", ...props } = $props();
 </script>
 
-<label for={props.name || props.id}>
-	<span class="block label-text">{(label && label) || ""}</span>
+<label for={props.id || props.name}>
+	<span class="block label-text">{label ? label : ""}</span>
 
 	<input
 		{...props}
 		required={props.required === undefined}
-		id={props.name || props.id}
+		id={props.id || props.name}
 		type={props.type || "text"}
 		class="{props.class} input-sm rounded"
 	/>

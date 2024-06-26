@@ -1,7 +1,8 @@
 import {
-	datetime,
 	int,
 	mysqlTable,
+	text,
+	timestamp,
 	uniqueIndex,
 	varchar,
 } from "drizzle-orm/mysql-core";
@@ -21,7 +22,7 @@ export const userTable = mysqlTable(
 
 export const postsTable = mysqlTable("posts", {
 	id: int("id").primaryKey().autoincrement(),
-	body: varchar("body", { length: 255 }),
-	timestamp: datetime("timestamp"),
+	body: text("body"),
+	timestamp: timestamp("timestamp").notNull().defaultNow(),
 	author: int("user_id").references(() => userTable.id),
 });
