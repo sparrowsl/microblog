@@ -2,6 +2,8 @@
 	// biome-ignore lint/correctness/noUnusedImports: <explanation>
 	import { applyAction, enhance } from "$app/forms";
 	// biome-ignore lint/correctness/noUnusedImports: <explanation>
+	import { goto } from "$app/navigation";
+	// biome-ignore lint/correctness/noUnusedImports: <explanation>
 	import Button from "$lib/components/Button.svelte";
 	// biome-ignore lint/correctness/noUnusedImports: <explanation>
 	import Input from "$lib/components/Input.svelte";
@@ -14,6 +16,7 @@
 			return async ({ result }) => {
 				if (result.type === "success") {
 					alert(String(result.data?.message));
+					goto("/login");
 				} else {
 					await applyAction(result);
 				}
@@ -21,21 +24,13 @@
 		}}
 	>
 		<fieldset class="grid gap-3">
-			<legend class="font-bold mb-2">Sign In</legend>
+			<legend class="font-bold mb-2">Register</legend>
 			<Input label="Username" name="username" />
+			<Input label="Email" name="email" />
 			<Input label="Password" name="password" type="password" />
+			<Input label="Repeat Password" name="password_confirm" type="password" />
 
-			<label for="remember" class="flex items-center gap-3 w-fit">
-				<input
-					type="checkbox"
-					class="checkbox checkbox-sm"
-					id="remember"
-					name="remember"
-				/>
-				<span class="label-text">Remember Me</span>
-			</label>
-
-			<Button class="w-fit">Sign In</Button>
+			<Button class="w-fit">Register</Button>
 		</fieldset>
 	</form>
 </main>
