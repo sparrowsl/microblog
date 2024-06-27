@@ -13,9 +13,7 @@ app.post("/login", validate_login, async (c) => {
 	/** @type {{username: string, password: string, email: string}} */
 	const { username, password } = await c.req.json();
 
-	const user = (
-		await db.select().from(userTable).where(eq(userTable.username, username))
-	).at(0);
+	const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
 
 	if (!user) {
 		return c.json({ message: "Invalid username" }, 400);
@@ -23,10 +21,7 @@ app.post("/login", validate_login, async (c) => {
 
 	// check password hash
 	try {
-		const password_match = await argon2.verify(
-			String(user.password_hash),
-			password
-		);
+		const password_match = await argon2.verify(String(user.password_hash), password);
 
 		if (!password_match) {
 			return c.json({ message: "Invalid username and password" }, 400);
@@ -61,9 +56,7 @@ app.post("/register", async (c) => {
 	try {
 		const hashed_password = await argon2.hash(password);
 
-		await db
-			.insert(userTable)
-			.values({ email, username, password_hash: hashed_password });
+		await db.insert(userTable).values({ email, username, password_hash: hashed_password });
 
 		return c.json({ data: { username, email } }, 201);
 	} catch (/** @type {*} */ _e) {
