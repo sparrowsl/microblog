@@ -1,10 +1,10 @@
 <script>
-	// biome-ignore lint/correctness/noUnusedImports: <explanation>
-	import { applyAction, enhance } from "$app/forms";
-	// biome-ignore lint/correctness/noUnusedImports: <explanation>
-	import Button from "$lib/components/Button.svelte";
-	// biome-ignore lint/correctness/noUnusedImports: <explanation>
-	import Input from "$lib/components/Input.svelte";
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import { applyAction, enhance } from "$app/forms";
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import Button from "$lib/components/Button.svelte";
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import Input from "$lib/components/Input.svelte";
 </script>
 
 <main class="container max-w-2xl mx-auto">

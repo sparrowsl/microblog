@@ -1,13 +1,13 @@
 {
-  "version": "7",
-  "dialect": "mysql",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "5",
-      "when": 1719406246651,
-      "tag": "0000_powerful_arclight",
-      "breakpoints": true
-    }
-  ]
+	"version": "7",
+	"dialect": "mysql",
+	"entries": [
+		{
+			"idx": 0,
+			"version": "5",
+			"when": 1719406246651,
+			"tag": "0000_powerful_arclight",
+			"breakpoints": true
+		}
+	]
 }

@@ -3,7 +3,6 @@ import { validate_login } from "../validators/login.js";
 import db from "../db/drizzle.js";
 import { userTable } from "../db/schema.js";
 import { eq } from "drizzle-orm";
-import argon2 from "argon2";
 import * as jwt from "hono/jwt";
 import config from "../config/index.js";
 
@@ -11,11 +10,9 @@ const app = new Hono();
 
 app.post("/", validate_login, async (c) => {
 	/** @type {{username: string, password: string, email: string}} */
-	const { username, password } = await c.req.json();
+	const { username } = await c.req.json();
 
-	const user = (
-		await db.select().from(userTable).where(eq(userTable.username, username))
-	).at(0);
+	const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
 
 	if (!user) {
 		return c.json({ message: "Invalid username" }, 400);

@@ -1,11 +1,4 @@
-import {
-	int,
-	mysqlTable,
-	text,
-	timestamp,
-	uniqueIndex,
-	varchar,
-} from "drizzle-orm/mysql-core";
+import { int, mysqlTable, text, timestamp, uniqueIndex, varchar } from "drizzle-orm/mysql-core";
 
 export const userTable = mysqlTable(
 	"users",
@@ -17,7 +10,7 @@ export const userTable = mysqlTable(
 	},
 	(userTable) => ({
 		email_idx: uniqueIndex("email_idx").on(userTable.email),
-	})
+	}),
 );
 
 export const postsTable = mysqlTable("posts", {
