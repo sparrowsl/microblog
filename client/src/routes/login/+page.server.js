@@ -1,3 +1,5 @@
+import { API_HOST } from "$env/static/private";
+import { redirect } from "@sveltejs/kit";
 import { z } from "zod";
 
 const login_schema = z.object({
@@ -16,7 +18,7 @@ const login_schema = z.object({
 
 /** @type {import('./$types').Actions} */
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request, fetch, cookies }) => {
 		const form = Object.fromEntries(await request.formData());
 		const { success, data, error } = login_schema.safeParse(form);
 
@@ -25,9 +27,24 @@ export const actions = {
 			return { message: errors[0] };
 		}
 
-		console.log(data);
-		return {
-			message: "Successful",
-		};
+		const res = await fetch(`${API_HOST}/login`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data),
+		});
+		const { data: user_data, message } = await res.json();
+
+		if (!res.ok) {
+			return { message };
+		}
+
+		cookies.set("token", user_data.token, {
+			path: "/",
+		});
+		cookies.set("user", JSON.stringify(user_data.user), {
+			path: "/",
+		});
+
+		redirect(307, "/");
 	},
 };

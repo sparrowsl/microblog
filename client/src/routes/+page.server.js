@@ -1,7 +1,7 @@
 import { API_HOST } from "$env/static/private";
 
 /** @type {import("./$types").PageServerLoad} */
-export async function load({ fetch }) {
+export async function load({ fetch, locals }) {
 	const req = await fetch(`${API_HOST}/posts`);
 	const { posts } = await req.json();
 
@@ -9,5 +9,5 @@ export async function load({ fetch }) {
 		return { posts: [] };
 	}
 
-	return { posts };
+	return { current_user: locals.user, posts };
 }

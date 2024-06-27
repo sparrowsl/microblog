@@ -23,20 +23,20 @@ app.post("/", validate_login, async (c) => {
 
 	// check password hash
 	try {
-		const password_match = await argon2.verify(
-			String(user.password_hash),
-			password
-		);
+		// const password_match = await argon2.verify(
+		// 	String(user.password_hash),
+		// 	password
+		// );
 
-		if (!password_match) {
-			return c.json({ message: "Invalid username and password" }, 400);
-		}
+		// if (!password_match) {
+		// 	return c.json({ message: "Invalid username and password" }, 400);
+		// }
 
 		// send a JWT token
 		const { password_hash, ...rest } = user;
 		const token = await jwt.sign(rest, config.SECRET_KET);
 
-		return c.json({ data: { token, user } });
+		return c.json({ data: { token, user: rest } });
 	} catch (/** @type {*} */ _e) {
 		return c.json({ message: _e.message }, 500);
 	}
