@@ -1,4 +1,4 @@
-import { createMiddleware } from "hono/factory";
+import { validator } from "hono/validator";
 import { z } from "zod";
 
 export const login_schema = z.object({
@@ -12,16 +12,13 @@ export const login_schema = z.object({
 	remember: z.boolean().optional().default(false),
 });
 
-export const check_login = createMiddleware(async (c, next) => {
-	const { success, data, error } = login_schema.safeParse(await c.req.json());
+export const validate_login = validator("json", (value, c) => {
+	const { success, data, error } = login_schema.safeParse(value);
 
 	if (!success) {
 		const errors = Object.values(error.flatten().fieldErrors).flat();
-		return c.json({ success: false, message: errors[0] }, 400);
+		return c.json({ success, message: errors[0] }, 400);
 	}
 
-	console.log(data);
-	// c.req.json()
-
-	await next();
+	return data;
 });
