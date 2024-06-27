@@ -30,24 +30,24 @@ call_lefthook()
       elif test -f "$dir/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook"
       then
         "$dir/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
-      elif test -f "$dir/apps/server/node_modules/lefthook/bin/index.js"
+      elif test -f "$dir/client/node_modules/lefthook/bin/index.js"
       then
-        "$dir/apps/server/node_modules/lefthook/bin/index.js" "$@"
-      elif test -f "$dir/apps/server/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook"
+        "$dir/client/node_modules/lefthook/bin/index.js" "$@"
+      elif test -f "$dir/client/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook"
       then
-        "$dir/apps/server/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
-      elif test -f "$dir/apps/server/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook"
+        "$dir/client/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
+      elif test -f "$dir/client/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook"
       then
-        "$dir/apps/server/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
-      elif test -f "$dir/apps/client/node_modules/lefthook/bin/index.js"
+        "$dir/client/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
+      elif test -f "$dir/server/node_modules/lefthook/bin/index.js"
       then
-        "$dir/apps/client/node_modules/lefthook/bin/index.js" "$@"
-      elif test -f "$dir/apps/client/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook"
+        "$dir/server/node_modules/lefthook/bin/index.js" "$@"
+      elif test -f "$dir/server/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook"
       then
-        "$dir/apps/client/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
-      elif test -f "$dir/apps/client/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook"
+        "$dir/server/node_modules/@evilmartians/lefthook/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
+      elif test -f "$dir/server/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook"
       then
-        "$dir/apps/client/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
+        "$dir/server/node_modules/@evilmartians/lefthook-installer/bin/lefthook_${osArch}_${cpuArch}/lefthook" "$@"
       
       elif bundle exec lefthook -h >/dev/null 2>&1
       then

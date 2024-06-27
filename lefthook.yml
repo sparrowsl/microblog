@@ -13,18 +13,18 @@ pre-commit:
   # parallel: true
   commands:
     client-lint:
-      root: "apps/client/"
+      root: "client/"
       glob: "*.{js,ts,jsx,tsx,svelte,html,css}"
       run: npm run lint {all_files}
     client-format:
-      root: "apps/client/"
+      root: "client/"
       glob: "*.{js,ts,jsx,tsx,svelte,html,css}"
       run: npm run format {all_files}
     server-lint:
-      root: "apps/server/"
+      root: "server/"
       glob: "*.{js,ts}"
       run: npm run lint {all_files}
     server-format:
-      root: "apps/server/"
+      root: "server/"
       glob: "*.{js,ts}"
       run: npm run format {all_files}
