@@ -7,7 +7,7 @@ const config_schema = z.object({
 	DATABASE_URL: z.string({ message: "DATABASE_URL is missing" }),
 });
 
-/** @returns {{PORT: number, SECRET_KET:string,  DATABASE_URL: string}} */
+/** @returns {{PORT: number, SECRET_KET:string,  DATABASE_URL: string}} config */
 function check_config() {
 	const { success, data, error } = config_schema.safeParse(process.env);
 
