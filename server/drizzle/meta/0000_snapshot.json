@@ -1,7 +1,7 @@
 {
-  "version": "5",
-  "dialect": "mysql",
-  "id": "5ec079bd-5703-4acb-913d-345f9dc77859",
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "92ebf19a-adbc-4d7f-bb04-319d72bc589b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "posts": {
@@ -9,8 +9,8 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "int",
-          "primaryKey": false,
+          "type": "integer",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": true
         },
@@ -23,15 +23,15 @@
         },
         "timestamp": {
           "name": "timestamp",
-          "type": "timestamp",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
-          "default": "(now())"
+          "default": "(current_timestamp)"
         },
         "user_id": {
           "name": "user_id",
-          "type": "int",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -49,12 +49,7 @@
           "onUpdate": "no action"
         }
       },
-      "compositePrimaryKeys": {
-        "posts_id": {
-          "name": "posts_id",
-          "columns": ["id"]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "users": {
@@ -62,28 +57,28 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "int",
-          "primaryKey": false,
+          "type": "integer",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": true
         },
         "username": {
           "name": "username",
-          "type": "varchar(65)",
+          "type": "text(65)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "email": {
           "name": "email",
-          "type": "varchar(120)",
+          "type": "text(120)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "password_hash": {
           "name": "password_hash",
-          "type": "varchar(255)",
+          "type": "text(255)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -97,22 +92,17 @@
         }
       },
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "users_id": {
-          "name": "users_id",
-          "columns": ["id"]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     }
   },
+  "enums": {},
   "_meta": {
     "schemas": {},
     "tables": {},
     "columns": {}
   },
   "internal": {
-    "tables": {},
     "indexes": {}
   }
 }

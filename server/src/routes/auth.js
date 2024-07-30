@@ -17,7 +17,11 @@ app.post("/login", validate_login, async (c) => {
 
   // check password hash
   try {
-    if (!user || (await argon2.verify(String(user?.password_hash), password))) {
+    if (
+      // biome-ignore lint/complexity/useSimplifiedLogicExpression: <readable like this>
+      !user ||
+      !(await argon2.verify(String(user?.password_hash), password))
+    ) {
       return c.json({ message: "Invalid username and password" }, 400);
     }
 
@@ -43,7 +47,7 @@ app.post("/register", async (c) => {
   ).at(0);
 
   if (user) {
-    return c.json({ message: "Username or email already exists" }, 400);
+    return c.json({ message: "username or email already exists" }, 400);
   }
 
   try {

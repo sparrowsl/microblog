@@ -1,10 +1,10 @@
 import "dotenv/config";
-import config from "./src/config/index.js";
+import config from "./src/config";
 
 /** @type { import("drizzle-kit").Config } */
 export default {
   schema: "./src/db/schema.js",
-  dialect: "mysql",
+  dialect: "sqlite",
   out: "./drizzle",
   strict: true,
   verbose: true,

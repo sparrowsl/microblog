@@ -1,7 +1,8 @@
-import { drizzle } from "drizzle-orm/mysql2";
-import mysql from "mysql2/promise";
-import config from "../config/index.js";
+import { drizzle } from "drizzle-orm/better-sqlite3";
+import Database from "better-sqlite3";
+import * as schema from "./schema.js";
 
-const connection = await mysql.createConnection(config.DATABASE_URL);
-const db = drizzle(connection);
+const sqlite = new Database("./microblog.db");
+const db = drizzle(sqlite, { schema });
+
 export default db;
