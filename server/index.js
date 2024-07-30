@@ -3,6 +3,6 @@ import app from "./app.js";
 import config from "./src/config/index.js";
 
 serve({
-	fetch: app.fetch,
-	port: config.PORT,
+  fetch: app.fetch,
+  port: config.PORT,
 });

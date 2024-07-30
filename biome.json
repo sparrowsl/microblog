@@ -1,70 +1,71 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
-	"organizeImports": {
-		"enabled": true
-	},
-	"formatter": {
-		"lineWidth": 100,
-		"ignore": ["node_modules", ".husky"]
-	},
-	"javascript": {
-		"formatter": {
-			"bracketSameLine": true,
-			"quoteStyle": "double",
-			"lineWidth": 100,
-			"semicolons": "always"
-		}
-	},
-	"linter": {
-		"ignore": ["node_modules", "package-lock.json"],
-		"rules": {
-			"recommended": true,
-			"a11y": {
-				"recommended": true
-			},
-			"correctness": {
-				"recommended": true,
-				"noNewSymbol": "warn",
-				"noUnusedImports": "error",
-				"noUndeclaredVariables": "error",
-				"noUnusedVariables": "error"
-			},
-			"performance": {
-				"recommended": true
-			},
-			"security": {
-				"recommended": true
-			},
-			"suspicious": {
-				"recommended": true,
-				"noApproximativeNumericConstant": "error",
-				"noConsoleLog": "warn",
-				"noMisrefactoredShorthandAssign": "error",
-				"noEmptyBlockStatements": "error",
-				"useAwait": "warn"
-			},
-			"style": {
-				"recommended": true,
-				"noImplicitBoolean": "error",
-				"noNegationElse": "warn",
-				"noShoutyConstants": "error",
-				"useBlockStatements": "error",
-				"useCollapsedElseIf": "warn",
-				"useForOf": "warn",
-				"useShorthandAssign": "warn",
-				"useSingleCaseStatement": "error"
-			},
-			"complexity": {
-				"recommended": true,
-				"noVoid": "error",
-				"useSimplifiedLogicExpression": "warn",
-				"noUselessTernary": "error"
-			},
-			"nursery": {
-				"recommended": true,
-				"noDuplicateJsonKeys": "error",
-				"noDuplicateElseIf": "error"
-			}
-		}
-	}
+  "$schema": "https://biomejs.dev/schemas/1.8.2/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "formatter": {
+    "lineWidth": 100,
+    "indentStyle": "space",
+    "ignore": ["node_modules", ".husky"]
+  },
+  "javascript": {
+    "formatter": {
+      "bracketSameLine": true,
+      "quoteStyle": "double",
+      "lineWidth": 100,
+      "semicolons": "always"
+    }
+  },
+  "linter": {
+    "ignore": ["node_modules", "package-lock.json"],
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "recommended": true
+      },
+      "correctness": {
+        "recommended": true,
+        "noNewSymbol": "warn",
+        "noUnusedImports": "error",
+        "noUndeclaredVariables": "error",
+        "noUnusedVariables": "error"
+      },
+      "performance": {
+        "recommended": true
+      },
+      "security": {
+        "recommended": true
+      },
+      "suspicious": {
+        "recommended": true,
+        "noApproximativeNumericConstant": "error",
+        "noConsoleLog": "warn",
+        "noMisrefactoredShorthandAssign": "error",
+        "noEmptyBlockStatements": "error",
+        "useAwait": "warn"
+      },
+      "style": {
+        "recommended": true,
+        "noImplicitBoolean": "error",
+        "noNegationElse": "warn",
+        "noShoutyConstants": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "warn",
+        "useForOf": "warn",
+        "useShorthandAssign": "warn",
+        "useSingleCaseStatement": "error"
+      },
+      "complexity": {
+        "recommended": true,
+        "noVoid": "error",
+        "useSimplifiedLogicExpression": "warn",
+        "noUselessTernary": "error"
+      },
+      "nursery": {
+        "recommended": true,
+        "noDuplicateJsonKeys": "error",
+        "noDuplicateElseIf": "error"
+      }
+    }
+  }
 }
