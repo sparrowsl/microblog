@@ -5,8 +5,8 @@
   "main": "./src/index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "lint": "biome lint --write .",
-    "format": "biome format --write .",
+    "lint": "biome lint --write ./src",
+    "format": "biome format --write ./src",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
     "db:drop": "drizzle-kit drop",

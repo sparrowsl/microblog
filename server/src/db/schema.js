@@ -22,16 +22,14 @@ export const usersRelations = relations(userTable, ({ many }) => ({
 export const postsTable = sqliteTable("posts", {
   id: int("id").primaryKey({ autoIncrement: true }),
   body: text("body"),
-  timestamp: text("timestamp")
-    .notNull()
-    .default(sql`(current_timestamp)`),
-  author: int("user_id").references(() => userTable.id),
+  timestamp: text("timestamp").notNull().default(sql`(current_timestamp)`),
+  authorId: int("user_id").references(() => userTable.id),
 });
 
 // Many to One for posts
 export const postsRelations = relations(postsTable, ({ one }) => ({
   author: one(userTable, {
-    fields: [postsTable.author],
+    fields: [postsTable.authorId],
     references: [userTable.id],
   }),
 }));
