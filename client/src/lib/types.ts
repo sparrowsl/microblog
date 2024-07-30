@@ -1,5 +1,3 @@
-// All types for the application
-
 export type User = {
 	id?: string;
 	username: string;

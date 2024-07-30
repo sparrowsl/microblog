@@ -1,22 +1,23 @@
 {
-	"name": "microblog",
-	"version": "0.0.1",
-	"description": "Simple blog application modeled after the microblog by Flask Mega Tutorial",
-	"scripts": {
-		"i:all": "npm install --prefix ./client && npm install --prefix ./server",
-		"lefthook": "lefthook install"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/sparrowsl/microblog.git"
-	},
-	"author": "Sparrow",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/sparrowsl/microblog/issues"
-	},
-	"homepage": "https://github.com/sparrowsl/microblog#readme",
-	"devDependencies": {
-		"lefthook": "^1.6.16"
-	}
+  "name": "microblog",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Simple blog application modeled after the microblog by Flask Mega Tutorial",
+  "scripts": {
+    "i:all": "npm install --prefix ./client && npm install --prefix ./server",
+    "lefthook": "lefthook install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sparrowsl/microblog.git"
+  },
+  "author": "Sparrow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sparrowsl/microblog/issues"
+  },
+  "homepage": "https://github.com/sparrowsl/microblog#readme",
+  "devDependencies": {
+    "lefthook": "^1.6.16"
+  }
 }
