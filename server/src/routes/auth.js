@@ -18,7 +18,7 @@ app.post("/login", validate_login, async (c) => {
   // check password hash
   try {
     if (
-      // biome-ignore lint/complexity/useSimplifiedLogicExpression: <readable like this>
+      // biome-ignore lint/complexity/useSimplifiedLogicExpression: <more readable>
       !user ||
       !(await argon2.verify(String(user?.password_hash), password))
     ) {
@@ -39,22 +39,18 @@ app.post("/register", async (c) => {
   /** @type {import("../utils/types.js").User} */
   const { username, email, password } = await c.req.json();
 
-  const user = (
-    await db
-      .select({ username: userTable.username, email: userTable.email })
-      .from(userTable)
-      .where(or(eq(userTable.username, username), eq(userTable.email, email)))
-  ).at(0);
+  const user = await db.query.userTable.findFirst({
+    where: or(eq(userTable.username, username), eq(userTable.email, email)),
+    columns: { password_hash: false },
+  });
 
   if (user) {
     return c.json({ message: "username or email already exists" }, 400);
   }
 
   try {
-    // check password hash
-    const hashed_password = await argon2.hash(password);
-
-    await db.insert(userTable).values({ email, username, password_hash: hashed_password });
+    const password_hash = await argon2.hash(password);
+    await db.insert(userTable).values({ email, username, password_hash });
 
     return c.json({ data: { username, email } }, 201);
   } catch (/** @type {*} */ _e) {

@@ -9,17 +9,18 @@ const current_user = $derived($page.data.current_user);
 </script>
 
 <div class="navbar bg-base-100">
-	<a class="text-xl flex-1" href="/">Microblog</a>
+    <a class="text-xl flex-1" href="/">Microblog</a>
 
-	<ul class="px-1 flex gap-5 text-sm flex-none">
-		<li><a href="/">Home</a></li>
-		{#if current_user}
-			<form action="/logout" method="post" use:enhance>
-				<button>Logout</button>
-			</form>
-		{:else}
-			<li><a href="/login">Login</a></li>
-			<li><a href="/register">Register</a></li>
-		{/if}
-	</ul>
+    <ul class="px-1 flex gap-5 text-sm flex-none">
+        <li><a href="/">Home {current_user}</a></li>
+        {#if current_user}
+            <li><a href="/users/{current_user.username}">profile</a></li>
+            <form action="/logout" method="post" use:enhance>
+                <button>Logout</button>
+            </form>
+        {:else}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        {/if}
+    </ul>
 </div>

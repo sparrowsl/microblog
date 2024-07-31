@@ -9,5 +9,8 @@ export async function load({ fetch, locals }) {
     return { posts: [] };
   }
 
-  return { current_user: locals.user, posts };
+  return {
+    current_user: locals.user,
+    posts,
+  };
 }
