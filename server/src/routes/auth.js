@@ -3,7 +3,7 @@ import argon2 from "argon2";
 import * as jwt from "hono/jwt";
 import { eq, or } from "drizzle-orm";
 
-import { validate_login } from "../validators/auth.js";
+import { validate_login, validate_register } from "../validators/auth.js";
 import db from "../db/drizzle.js";
 import { userTable } from "../db/schema.js";
 import config from "../config/index.js";
@@ -11,8 +11,7 @@ import config from "../config/index.js";
 const app = new Hono().basePath("/auth");
 
 app.post("/login", validate_login, async (c) => {
-  /** @type {import("../utils/types.js").User} */
-  const { username, password } = await c.req.json();
+  const { username, password } = c.req.valid("json");
 
   const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
 
@@ -30,9 +29,8 @@ app.post("/login", validate_login, async (c) => {
   }
 });
 
-app.post("/register", async (c) => {
-  /** @type {import("../utils/types.js").User} */
-  const { username, email, password } = await c.req.json();
+app.post("/register", validate_register, async (c) => {
+  const { username, email, password } = c.req.valid("json");
 
   const user = await db.query.userTable.findFirst({
     where: or(eq(userTable.username, username), eq(userTable.email, email)),
