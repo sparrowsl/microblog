@@ -14,6 +14,3 @@ declare global {
     // interface Platform {}
   }
 }
-
-// biome-ignore lint/complexity/noUselessEmptyExport: <explanation>
-export type {};

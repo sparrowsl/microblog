@@ -1,4 +1,6 @@
 <script>
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import { logout } from "$lib/cookies.js";
 import "iconify-icon";
 </script>
 
@@ -51,25 +53,26 @@ import "iconify-icon";
 					>
 						<a
 							class="p-2 w-full flex items-center gap-1 text-sm text-gray-800 hover:text-gray-500 focus:outline-none"
-							href="/"
+							href="/login"
 						>
 							<iconify-icon icon="mdi:login"></iconify-icon>
 							Log in
 						</a>
 						<a
 							class="p-2 w-full flex items-center gap-1 text-sm text-gray-800 hover:text-gray-500 focus:outline-none"
-							href="/"
+							href="/register"
 						>
 							<iconify-icon icon="mdi:register-outline"></iconify-icon>
 							Register
 						</a>
-						<a
-							class="p-2 w-full flex items-center gap-1 text-sm text-red-800 hover:text-red-500 focus:outline-none"
-							href="/"
+						<button
+							type="button"
+							onclick={logout}
+							class="flex items-center gap-1 text-sm text-red-800 hover:text-red-500"
 						>
 							<iconify-icon icon="mdi:logout"></iconify-icon>
 							Logout
-						</a>
+						</button>
 					</ul>
 					<!-- End Button Group -->
 				</div>
