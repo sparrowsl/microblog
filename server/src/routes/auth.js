@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { validate_login } from "../validators/login.js";
+import { validate_login } from "../validators/auth.js";
 import db from "../db/drizzle.js";
 import { userTable } from "../db/schema.js";
 import { eq, or } from "drizzle-orm";
@@ -15,17 +15,11 @@ app.post("/login", validate_login, async (c) => {
 
   const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
 
-  // check password hash
   try {
-    if (
-      // biome-ignore lint/complexity/useSimplifiedLogicExpression: <more readable>
-      !user ||
-      !(await argon2.verify(String(user?.password_hash), password))
-    ) {
+    if (!user || !(await argon2.verify(String(user?.password_hash), password))) {
       return c.json({ message: "Invalid username and password" }, 400);
     }
 
-    // send a JWT token
     const { password_hash, ...rest } = user;
     const token = await jwt.sign(rest, config.SECRET_KET);
 
