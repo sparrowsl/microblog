@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/sparrowsl/microblog#readme",
   "devDependencies": {
-    "lefthook": "^1.6.16"
+    "lefthook": "^1.7.15"
   }
 }
