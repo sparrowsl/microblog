@@ -1,32 +1,31 @@
 {
-  "name": "server",
-  "version": "0.0.1",
-  "private": true,
-  "main": "./src/index.js",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "lint": "biome lint --write ./src",
-    "format": "biome format --write ./src",
-    "db:push": "drizzle-kit push",
-    "db:migrate": "drizzle-kit migrate",
-    "db:drop": "drizzle-kit drop",
-    "db:generate": "drizzle-kit generate",
-    "db:studio": "drizzle-kit studio --verbose"
-  },
-  "dependencies": {
-    "@hono/node-server": "^1.11.4",
-    "argon2": "^0.40.3",
-    "better-sqlite3": "^11.1.2",
-    "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.31.4",
-    "hono": "^4.4.8",
-    "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.8.2",
-    "drizzle-kit": "^0.22.7",
-    "nodemon": "^3.1.4",
-    "typescript": "^5.5.2"
-  },
-  "type": "module"
+	"name": "server",
+	"version": "0.0.1",
+	"private": true,
+	"main": "index.js",
+	"scripts": {
+		"dev": "node --watch index.js",
+		"lint": "biome lint --write ./src",
+		"format": "biome format --write ./src",
+		"db:push": "drizzle-kit push",
+		"db:migrate": "drizzle-kit migrate",
+		"db:drop": "drizzle-kit drop",
+		"db:generate": "drizzle-kit generate",
+		"db:studio": "drizzle-kit studio --verbose"
+	},
+	"dependencies": {
+		"@hono/node-server": "^1.11.4",
+		"argon2": "^0.40.3",
+		"better-sqlite3": "^11.1.2",
+		"dotenv": "^16.4.5",
+		"drizzle-orm": "^0.31.4",
+		"hono": "^4.4.8",
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.2",
+		"drizzle-kit": "^0.22.7",
+		"typescript": "^5.5.2"
+	},
+	"type": "module"
 }
