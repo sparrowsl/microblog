@@ -1,5 +1,5 @@
 import "dotenv/config";
-import config from "./src/config";
+import config from "./src/config/index.js";
 
 /** @type { import("drizzle-kit").Config } */
 export default {

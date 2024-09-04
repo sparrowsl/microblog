@@ -1,13 +1,14 @@
 import { Hono } from "hono";
+import argon2 from "argon2";
+import * as jwt from "hono/jwt";
+import { eq, or } from "drizzle-orm";
+
 import { validate_login } from "../validators/auth.js";
 import db from "../db/drizzle.js";
 import { userTable } from "../db/schema.js";
-import { eq, or } from "drizzle-orm";
-import * as jwt from "hono/jwt";
 import config from "../config/index.js";
-import argon2 from "argon2";
 
-const app = new Hono();
+const app = new Hono().basePath("/auth");
 
 app.post("/login", validate_login, async (c) => {
   /** @type {import("../utils/types.js").User} */

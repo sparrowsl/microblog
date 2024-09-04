@@ -1,9 +1,10 @@
 import { Hono } from "hono";
-import db from "../db/drizzle.js";
-import { userTable } from "../db/schema.js";
 import { eq } from "drizzle-orm";
 
-const app = new Hono();
+import db from "../db/drizzle.js";
+import { userTable } from "../db/schema.js";
+
+const app = new Hono().basePath("/users");
 
 app.get("/", async (c) => {
   const users = await db.query.userTable.findMany({
@@ -14,12 +15,9 @@ app.get("/", async (c) => {
 });
 
 app.get("/:username", async (c) => {
-  /** @type {{username: string}} */
-  const { username } = c.req.param();
-
   try {
     const user = await db.query.userTable.findFirst({
-      where: eq(userTable.username, username),
+      where: eq(userTable.username, c.req.param("username")),
       columns: { password_hash: false },
       with: { posts: true },
     });
@@ -29,8 +27,8 @@ app.get("/:username", async (c) => {
     }
 
     return c.json({ data: { user } });
-  } catch (e) {
-    return c.json({ message: e.message }, 500);
+  } catch (/** @type {*} */ _e) {
+    return c.json({ message: _e.message }, 500);
   }
 });
 

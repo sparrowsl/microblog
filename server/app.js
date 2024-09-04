@@ -12,10 +12,10 @@ app.use(trimTrailingSlash());
 
 app.get("/", (c) => c.json({ message: "Microblog API!" }));
 
-app.route("/posts", posts);
-app.route("/auth", auth);
-app.route("/users", users);
+app.route("/", posts);
+app.route("/", auth);
+app.route("/", users);
 
-app.get("*", (c) => c.json({ message: "Invalid API endpoint" }));
+app.all("*", (c) => c.json({ message: "Invalid API endpoint" }));
 
 export default app;
