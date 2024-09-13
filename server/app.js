@@ -1,7 +1,7 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { trimTrailingSlash } from "hono/trailing-slash";
-import { cors } from "hono/cors";
 
 import auth from "./src/routes/auth.js";
 import posts from "./src/routes/posts.js";

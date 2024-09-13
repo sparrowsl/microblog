@@ -1,22 +1,26 @@
-import { Hono } from "hono";
 import argon2 from "argon2";
-import * as jwt from "hono/jwt";
 import { eq, or } from "drizzle-orm";
+import { Hono } from "hono";
+import * as jwt from "hono/jwt";
 
-import { validate_login, validate_register } from "../validators/auth.js";
+import config from "../config/index.js";
 import db from "../db/drizzle.js";
 import { userTable } from "../db/schema.js";
-import config from "../config/index.js";
+import { validate_login, validate_register } from "../validators/auth.js";
 
 const app = new Hono().basePath("/auth");
 
 app.post("/login", validate_login, async (c) => {
   const { username, password } = c.req.valid("json");
 
-  const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
+  const user = (
+    await db.select().from(userTable).where(eq(userTable.username, username))
+  ).at(0);
 
   try {
-    if (!user || !(await argon2.verify(String(user?.password_hash), password))) {
+    if (
+      !(user || (await argon2.verify(String(user?.password_hash), password)))
+    ) {
       return c.json({ message: "Invalid username and password" }, 400);
     }
 

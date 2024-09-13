@@ -12,19 +12,12 @@ output:
 pre-commit:
   # parallel: true
   commands:
-    client-check-lint:
-      root: "client/"
-      glob: "*.{js,ts,jsx,tsx,svelte,html,css}"
-      run: npm run lint {all_files}
-    client-format:
+    client-check:
       root: "client/"
       glob: "*.{js,ts,jsx,tsx,svelte,html,css}"
       run: npm run format {all_files}
-    server-check-lint:
-      root: "server/"
-      glob: "*.{js,ts}"
-      run: npm run lint {all_files}
-    server-format:
+
+    server-check:
       root: "server/"
       glob: "*.{js,ts}"
       run: npm run format {all_files}
