@@ -1,12 +1,12 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
   "organizeImports": {
     "enabled": true
   },
   "formatter": {
     "lineWidth": 100,
     "indentStyle": "space",
-    "ignore": ["node_modules", ".husky"]
+    "ignore": ["node_modules"]
   },
   "javascript": {
     "formatter": {
@@ -17,7 +17,7 @@
     }
   },
   "linter": {
-    "ignore": ["node_modules", "package-lock.json"],
+    "ignore": ["node_modules"],
     "rules": {
       "recommended": true,
       "a11y": {
@@ -28,7 +28,12 @@
         "noNewSymbol": "warn",
         "noUnusedImports": "error",
         "noUndeclaredVariables": "error",
-        "noUnusedVariables": "error"
+        "noUnusedVariables": "error",
+        "noInvalidUseBeforeDeclaration": "error",
+        "noUnusedFunctionParameters": "warn",
+        "noUnnecessaryContinue": "warn",
+        "noUndeclaredDependencies": "warn",
+        "noFlatMapIdentity": "warn"
       },
       "performance": {
         "recommended": true
@@ -41,8 +46,7 @@
         "noApproximativeNumericConstant": "error",
         "noConsoleLog": "warn",
         "noMisrefactoredShorthandAssign": "error",
-        "noEmptyBlockStatements": "error",
-        "useAwait": "warn"
+        "noEmptyBlockStatements": "error"
       },
       "style": {
         "recommended": true,
@@ -63,7 +67,6 @@
       },
       "nursery": {
         "recommended": true,
-        "noDuplicateJsonKeys": "error",
         "noDuplicateElseIf": "error"
       }
     }

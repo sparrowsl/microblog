@@ -4,7 +4,6 @@ import { PUBLIC_API_HOST } from "$env/static/public";
 import { cookies } from "$lib/cookies.js";
 import { check_login_data } from "$lib/validations/auth.js";
 
-// biome-ignore lint/correctness/noUndeclaredVariables: <explanation>
 const payload = $state({ username: "", password: "" });
 
 /** @param {Event} e */
@@ -35,10 +34,14 @@ async function login(e) {
 	<div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm">
 		<div class="p-4 sm:p-7">
 			<div class="text-center">
-				<h1 class="block text-2xl font-bold text-gray-800 dark:text-white">
+				<h1
+					class="block text-2xl font-bold text-gray-800 dark:text-white"
+				>
 					Login
 				</h1>
-				<p class="mt-2 text-sm text-gray-600 dark:text-neutral-400">
+				<p
+					class="mt-2 text-sm text-gray-600 dark:text-neutral-400"
+				>
 					Don't' have an account?
 					<a
 						class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500"
@@ -54,7 +57,10 @@ async function login(e) {
 				<form method="post" onsubmit={login}>
 					<div class="grid gap-y-4">
 						<div>
-							<label for="username" class="block text-sm mb-2 dark:text-white">
+							<label
+								for="username"
+								class="block text-sm mb-2 dark:text-white"
+							>
 								Username
 							</label>
 							<input
@@ -68,7 +74,10 @@ async function login(e) {
 						</div>
 
 						<div>
-							<label for="password" class="block text-sm mb-2 dark:text-white">
+							<label
+								for="password"
+								class="block text-sm mb-2 dark:text-white"
+							>
 								Password
 							</label>
 							<input

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch index.js",
-    "format": "biome check --write --unsafe ./src",
+    "check": "biome check --write ./src",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
     "db:drop": "drizzle-kit drop",
@@ -13,18 +13,18 @@
     "db:studio": "drizzle-kit studio --verbose"
   },
   "dependencies": {
-    "@hono/node-server": "^1.12.2",
+    "@hono/node-server": "^1.13.1",
     "argon2": "^0.41.1",
-    "better-sqlite3": "^11.2.1",
+    "better-sqlite3": "^11.3.0",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.33.0",
-    "hono": "^4.5.11",
+    "hono": "^4.6.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
+    "@biomejs/biome": "^1.9.2",
     "drizzle-kit": "^0.24.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   },
   "type": "module"
 }

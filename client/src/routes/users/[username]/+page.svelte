@@ -1,5 +1,4 @@
 <script>
-// biome-ignore lint/correctness/noUndeclaredVariables: <explanation>
 const { data } = $props();
 // biome-ignore lint/correctness/noUndeclaredVariables: <explanation>
 // biome-ignore lint/correctness/noUnusedVariables: <explanation>

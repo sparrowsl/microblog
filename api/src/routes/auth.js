@@ -13,14 +13,10 @@ const app = new Hono().basePath("/auth");
 app.post("/login", validate_login, async (c) => {
   const { username, password } = c.req.valid("json");
 
-  const user = (
-    await db.select().from(userTable).where(eq(userTable.username, username))
-  ).at(0);
+  const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
 
   try {
-    if (
-      !(user || (await argon2.verify(String(user?.password_hash), password)))
-    ) {
+    if (!(user || (await argon2.verify(String(user?.password_hash), password)))) {
       return c.json({ message: "Invalid username and password" }, 400);
     }
 

@@ -14,10 +14,10 @@ pre-commit:
   commands:
     client-check:
       root: "client/"
-      glob: "*.{js,ts,jsx,tsx,svelte,html,css}"
-      run: npm run format {all_files}
+      glob: "*.{js,ts,svelte,html,css}"
+      run: npm run biome:check {all_files}
 
     server-check:
       root: "server/"
       glob: "*.{js,ts}"
-      run: npm run format {all_files}
+      run: npm run check {all_files}
