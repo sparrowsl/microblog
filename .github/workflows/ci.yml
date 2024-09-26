@@ -22,22 +22,15 @@ jobs:
         run: npm install
         working-directory: ./client
 
-      - name: Run client linter
-        run: npm run lint
-        working-directory: ./client
-
-      - name: Run client formatter
-        run: npm run format
+      - name: Run biome check on client
+        run: npm run biome:check
         working-directory: ./client
 
       - name: Install server dependencies
         run: npm install
-        working-directory: ./server
+        working-directory: ./api
 
-      - name: Run server linter
-        run: npm run lint
-        working-directory: ./server
+      - name: Run biome check on api
+        run: npm run check
+        working-directory: ./api
 
-      - name: Run server formatter
-        run: npm run format
-        working-directory: ./server
