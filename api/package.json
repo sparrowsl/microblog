@@ -1,11 +1,11 @@
 {
-  "name": "server",
+  "name": "api",
   "version": "0.0.1",
   "private": true,
   "main": "index.js",
   "scripts": {
     "dev": "node --watch index.js",
-    "check": "biome check --write ./src",
+    "biome:check": "biome check --write ./src",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
     "db:drop": "drizzle-kit drop",

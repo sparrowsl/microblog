@@ -20,8 +20,9 @@ export const validate_login = validator("json", (value, c) => {
   const { success, data, error } = auth_schema.omit({ name: true, email: true }).safeParse(value);
 
   if (!success) {
-    const errors = Object.values(error.flatten().fieldErrors).flat();
-    return c.json({ message: errors[0] }, 400);
+    const { fieldErrors } = error.flatten();
+    const errors = Object.values(fieldErrors).flat();
+    return c.json({ message: errors.at(0) }, 400);
   }
 
   return data;
@@ -31,9 +32,12 @@ export const validate_register = validator("json", (value, c) => {
   const { success, data, error } = auth_schema.omit({ name: true }).safeParse(value);
 
   if (!success) {
-    const errors = Object.values(error.flatten().fieldErrors).flat();
-    return c.json({ message: errors[0] }, 400);
+    const { fieldErrors } = error.flatten();
+    const errors = Object.values(fieldErrors).flat();
+    return c.json({ message: errors.at(0) }, 400);
   }
+
+  console.log(data);
 
   return data;
 });

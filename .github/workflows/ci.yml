@@ -31,6 +31,5 @@ jobs:
         working-directory: ./api
 
       - name: Run biome check on api
-        run: npm run check
+        run: npm run biome:check
         working-directory: ./api
-

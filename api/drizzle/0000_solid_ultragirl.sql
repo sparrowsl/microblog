@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 	`user_id` integer,
 	FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON UPDATE no action ON DELETE no action
 );
+
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS `users` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -12,5 +13,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 	`email` text(120),
 	`password_hash` text(255)
 );
+
 --> statement-breakpoint
-CREATE UNIQUE INDEX  IF NOT EXISTS `email_idx` ON `users` (`email`);
+CREATE UNIQUE INDEX IF NOT EXISTS `email_idx` ON `users` (`email`);

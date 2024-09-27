@@ -17,7 +17,7 @@ pre-commit:
       glob: "*.{js,ts,svelte,html,css}"
       run: npm run biome:check {all_files}
 
-    server-check:
-      root: "server/"
+    api-check:
+      root: "api/"
       glob: "*.{js,ts}"
-      run: npm run check {all_files}
+      run: npm run biome:check {all_files}
