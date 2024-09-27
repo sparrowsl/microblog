@@ -1,4 +1,4 @@
-import daisyui from "daisyui";
+// import daisyui from "daisyui";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,5 +10,5 @@ export default {
       },
     },
   },
-  plugins: [daisyui, require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms")],
 };
