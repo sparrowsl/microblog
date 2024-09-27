@@ -9,7 +9,7 @@ export const get_current_user = () => {
     const user = JSON.parse(cookies.get("user"));
     return user;
   } catch (_e) {
-    return null;
+    return undefined;
   }
 };
 

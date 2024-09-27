@@ -6,7 +6,9 @@
   "formatter": {
     "lineWidth": 100,
     "indentStyle": "space",
-    "ignore": ["node_modules"]
+    "ignore": [
+      "node_modules"
+    ]
   },
   "javascript": {
     "formatter": {
@@ -17,7 +19,9 @@
     }
   },
   "linter": {
-    "ignore": ["node_modules"],
+    "ignore": [
+      "node_modules"
+    ],
     "rules": {
       "recommended": true,
       "a11y": {
@@ -32,7 +36,6 @@
         "noInvalidUseBeforeDeclaration": "error",
         "noUnusedFunctionParameters": "warn",
         "noUnnecessaryContinue": "warn",
-        "noUndeclaredDependencies": "warn",
         "noFlatMapIdentity": "warn"
       },
       "performance": {
