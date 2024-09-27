@@ -13,6 +13,6 @@ const posts = [
   },
 ];
 
-app.get("/", (c) => c.json({ posts }));
+app.get("/", (c) => c.json({ data: { posts } }));
 
 export default app;

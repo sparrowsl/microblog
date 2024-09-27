@@ -37,7 +37,5 @@ export const validate_register = validator("json", (value, c) => {
     return c.json({ message: errors.at(0) }, 400);
   }
 
-  console.log(data);
-
   return data;
 });

@@ -16,14 +16,14 @@ async function login(e) {
     body: JSON.stringify(payload),
   });
 
-  const { data, message } = await res.json();
+  /** @type {import("$lib/types").API_Response} */
+  const { data } = await res.json();
   if (!res.ok) {
-    console.log(message);
     return;
   }
 
   cookies.set("token", data.token);
-  cookies.set("user", data.user);
+  cookies.set("user", JSON.stringify(data.user));
   goto("/");
 }
 </script>

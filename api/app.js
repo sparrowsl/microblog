@@ -7,7 +7,7 @@ import auth from "./src/routes/auth.js";
 import posts from "./src/routes/posts.js";
 import users from "./src/routes/users.js";
 
-const app = new Hono();
+const app = new Hono({ strict: false });
 app.use(logger());
 app.use(cors({ origin: "*" }));
 app.use(trimTrailingSlash());

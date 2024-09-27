@@ -25,8 +25,9 @@ async function register(e) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
-  const { data, message } = await res.json();
 
+  /** @type {import("$lib/types").API_Response} */
+  const { data, message } = await res.json();
   if (!res.ok) {
     console.log(message);
     return;

@@ -5,8 +5,8 @@ export const cookies = new Cookies(null, { path: "/" });
 
 export const get_current_user = () => {
   try {
-    /** @type {import("./types.js").User} */
-    const user = JSON.parse(cookies.get("user"));
+    /** @type {import("./types").User} */
+    const user = cookies.get("user");
     return user;
   } catch (_e) {
     return undefined;

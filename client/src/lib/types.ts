@@ -5,3 +5,18 @@ export type User = {
   email: string;
   avatar?: string;
 };
+
+export type Post = {
+  id?: string;
+  author?: User;
+  body: string;
+};
+
+export type API_Response = {
+  data: {
+    user: User;
+    posts: Post[];
+    token: string;
+  };
+  message: string;
+};
