@@ -14,10 +14,17 @@ export async function load({ fetch, params }) {
     error(404, { message });
   }
 
+  /** @returns {Promise<import("$lib/types").Post[]>} */
+  async function get_posts() {
+    const res = await fetch(`${PUBLIC_API_HOST}/posts`);
+    return await res.json();
+  }
+
   data.user.avatar = `https://robohash.org/${data.user.email}`;
 
   return {
     current_user: get_current_user(),
     user: data.user,
+    posts: get_posts(),
   };
 }

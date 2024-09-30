@@ -8,6 +8,8 @@ export const userTable = sqliteTable(
     username: text("username", { length: 65 }),
     email: text("email", { length: 120 }),
     password_hash: text("password_hash", { length: 255 }),
+    last_seen: text("last_seen").notNull().default(sql`(current_timestamp)`),
+    about_me: text("about_me", { length: 200 }),
   },
   (userTable) => ({
     email_idx: uniqueIndex("email_idx").on(userTable.email),

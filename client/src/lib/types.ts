@@ -4,6 +4,7 @@ export type User = {
   password: string;
   email: string;
   avatar?: string;
+  posts?: Post[];
 };
 
 export type Post = {
