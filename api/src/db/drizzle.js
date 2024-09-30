@@ -4,7 +4,6 @@ import * as schema from "./schema.js";
 
 import { config } from "../config/index.js";
 
-const sqlite = new Database(config.DATABASE_URL);
-const db = drizzle(sqlite, { schema });
+const database = new Database(config.DATABASE_URL);
 
-export default db;
+export const db = drizzle(database, { schema });

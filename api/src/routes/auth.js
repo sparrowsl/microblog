@@ -4,7 +4,7 @@ import { Hono } from "hono";
 import * as jwt from "hono/jwt";
 
 import { config } from "../config/index.js";
-import db from "../db/drizzle.js";
+import { db } from "../db/drizzle.js";
 import { userTable } from "../db/schema.js";
 import { validate_login, validate_register } from "../validators/auth.js";
 
@@ -16,6 +16,7 @@ app.post("/login", validate_login, async (c) => {
   const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
 
   try {
+    // biome-ignore lint/complexity/useSimplifiedLogicExpression:
     if (!user || !(await argon2.verify(String(user?.password_hash), password))) {
       return c.json({ message: "Invalid username and password" }, 400);
     }
@@ -47,7 +48,6 @@ app.post("/register", validate_register, async (c) => {
 
     return c.json({ data: { username, email } }, 201);
   } catch (/** @type {*} */ _e) {
-    console.log(_e);
     return c.json({ message: _e.message }, 500);
   }
 });
