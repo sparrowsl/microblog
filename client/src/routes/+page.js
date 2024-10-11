@@ -9,7 +9,10 @@ export async function load({ fetch }) {
   const { data } = await req.json();
 
   if (!req.ok) {
-    return { posts: [] };
+    return {
+      current_user: get_current_user(),
+      posts: [],
+    };
   }
 
   return {
