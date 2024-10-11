@@ -4,12 +4,12 @@ import { int, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 export const userTable = sqliteTable(
   "users",
   {
-    id: int("id").primaryKey({ autoIncrement: true }),
-    username: text("username", { length: 65 }),
-    email: text("email", { length: 120 }),
-    password_hash: text("password_hash", { length: 255 }),
-    last_seen: text("last_seen").notNull().default(sql`(current_timestamp)`),
-    about_me: text("about_me", { length: 200 }),
+    id: int().primaryKey({ autoIncrement: true }),
+    username: text({ length: 65 }),
+    email: text({ length: 120 }),
+    password_hash: text({ length: 255 }),
+    last_seen: text().notNull().default(sql`(current_timestamp)`),
+    about_me: text({ length: 200 }),
   },
   (userTable) => ({
     email_idx: uniqueIndex("email_idx").on(userTable.email),
@@ -22,9 +22,9 @@ export const usersRelations = relations(userTable, ({ many }) => ({
 }));
 
 export const postsTable = sqliteTable("posts", {
-  id: int("id").primaryKey({ autoIncrement: true }),
-  body: text("body"),
-  timestamp: text("timestamp").notNull().default(sql`(current_timestamp)`),
+  id: int().primaryKey({ autoIncrement: true }),
+  body: text(),
+  timestamp: text().notNull().default(sql`(current_timestamp)`),
   authorId: int("user_id").references(() => userTable.id),
 });
 
