@@ -4,7 +4,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch index.js",
+    "dev": "node --watch app.js",
+    "prod": "node app.js",
     "biome:check": "biome check --write ./src",
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",

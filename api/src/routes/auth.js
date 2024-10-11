@@ -13,16 +13,24 @@ const app = new Hono().basePath("/auth");
 app.post("/login", validate_login, async (c) => {
   const { username, password } = c.req.valid("json");
 
-  const user = (await db.select().from(userTable).where(eq(userTable.username, username))).at(0);
+  const user = await db.query.userTable.findFirst({
+    where: eq(userTable.username, username),
+  });
 
   try {
-    // biome-ignore lint/complexity/useSimplifiedLogicExpression:
-    if (!user || !(await argon2.verify(String(user?.password_hash), password))) {
+    if (
+      // biome-ignore lint/complexity/useSimplifiedLogicExpression:
+      !user ||
+      !(await argon2.verify(String(user?.password_hash), password))
+    ) {
       return c.json({ message: "Invalid username and password" }, 400);
     }
 
     const { password_hash, ...rest } = user;
     const token = await jwt.sign(rest, config.SECRET_KET);
+
+    // update last_seen
+    db.insert(userTable).values({ last_seen: new Date().toISOString() });
 
     return c.json({ data: { token, user: rest } });
   } catch (/** @type {*} */ _e) {
