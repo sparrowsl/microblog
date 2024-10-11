@@ -32,4 +32,24 @@ app.get("/:username", async (c) => {
   }
 });
 
+app.patch("/:username", async (c) => {
+  const body = await c.req.json();
+
+  try {
+    const user = (
+      await db
+        .update(userTable)
+        .set({
+          username: body.username,
+          about_me: body.about_me,
+        })
+        .returning()
+    ).at(0);
+
+    return c.json({ data: { user } });
+  } catch (/** @type {*} */ _e) {
+    return c.json({ message: _e.message }, 500);
+  }
+});
+
 export default app;

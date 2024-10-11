@@ -1,13 +1,13 @@
 <script>
+import { get_current_user } from "$lib/cookies";
+
 /** @type {{data: import("./$types").PageData}} */
 const { data } = $props();
 // biome-ignore lint/correctness/noUnusedVariables: <explanation>
 const user = data.user;
+// biome-ignore lint/correctness/noUnusedVariables: <explanation>
+const current_user = get_current_user();
 </script>
-
-<!-- <pre>
-{JSON.stringify(data, null, 2)}
-</pre> -->
 
 <table>
   <tbody>
@@ -26,6 +26,12 @@ const user = data.user;
         {/if}
         {#if user.last_seen}
           <p>Last seen on: {user.last_seen}</p>
+        {/if}
+        {#if user.id === current_user?.id}
+          <a
+            href="/users/{current_user?.username}/edit"
+            class="underline text-blue-700 block mt-3">Edit your profile</a
+          >
         {/if}
       </td>
     </tr>
