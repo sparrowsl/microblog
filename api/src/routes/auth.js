@@ -30,7 +30,7 @@ app.post("/login", validate_login, async (c) => {
     const token = await jwt.sign(rest, config.SECRET_KET);
 
     // update last_seen
-    db.insert(userTable).values({ last_seen: new Date().toISOString() });
+    db.update(userTable).set({ last_seen: new Date().toUTCString() }).execute();
 
     return c.json({ data: { token, user: rest } });
   } catch (/** @type {*} */ _e) {
