@@ -12,25 +12,24 @@
     "biome:check": "biome check --write ./src"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.2",
-    "@sveltejs/adapter-node": "^5.2.4",
-    "@sveltejs/kit": "^2.5.28",
+    "@biomejs/biome": "^1.9.3",
+    "@sveltejs/adapter-node": "^5.2.6",
+    "@sveltejs/kit": "^2.6.4",
     "@sveltejs/vite-plugin-svelte": "^4.0.0-next.7",
     "@tailwindcss/forms": "^0.5.9",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "svelte": "^5.0.0-next.259",
-    "svelte-check": "^4.0.2",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2",
+    "@tailwindcss/vite": "^4.0.0-alpha.26",
+    "svelte": "^5.0.0-next.264",
+    "svelte-check": "^4.0.4",
+    "tailwindcss": "^4.0.0-alpha.26",
+    "typescript": "^5.6.3",
     "vite": "^5.4.8",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.2"
   },
   "type": "module",
   "engineStrict": true,
   "dependencies": {
     "iconify-icon": "^2.1.0",
-    "universal-cookie": "^7.2.0",
+    "universal-cookie": "^7.2.1",
     "zod": "^3.23.8"
   }
 }

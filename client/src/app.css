@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-family-open-sans: "Open Sans", "Arial", "sans-serif";
+}
