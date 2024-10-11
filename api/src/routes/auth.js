@@ -29,9 +29,6 @@ app.post("/login", validate_login, async (c) => {
     const { password_hash, ...rest } = user;
     const token = await jwt.sign(rest, config.SECRET_KET);
 
-    // update last_seen
-    db.update(userTable).set({ last_seen: new Date().toUTCString() }).execute();
-
     return c.json({ data: { token, user: rest } });
   } catch (/** @type {*} */ _e) {
     return c.json({ message: _e.message }, 500);

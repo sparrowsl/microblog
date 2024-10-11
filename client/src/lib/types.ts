@@ -3,6 +3,8 @@ export type User = {
   username: string;
   password: string;
   email: string;
+  about_me?: string;
+  last_seen?: Date | string;
   avatar?: string;
   posts?: Post[];
 };

@@ -1,9 +1,8 @@
 <script>
 /** @type {{data: import("./$types").PageData}} */
 const { data } = $props();
-// biome-ignore lint/correctness/noUndeclaredVariables: <explanation>
 // biome-ignore lint/correctness/noUnusedVariables: <explanation>
-const user = $derived(data.user);
+const user = data.user;
 </script>
 
 <!-- <pre>
@@ -13,8 +12,22 @@ const user = $derived(data.user);
 <table>
   <tbody>
     <tr>
-      <td><img src={user?.avatar} alt="" /></td>
-      <td><h1 class="font-bold text-2xl">User: {user.username}</h1></td>
+      <td>
+        <img
+          src={user?.avatar}
+          alt="{user.username}'s avatar"
+          class="max-w-52 object-center"
+        />
+      </td>
+      <td>
+        <h1 class="font-bold text-2xl">User: {user.username}</h1>
+        {#if user.about_me}
+          <p>{user.about_me}</p>
+        {/if}
+        {#if user.last_seen}
+          <p>Last seen on: {user.last_seen}</p>
+        {/if}
+      </td>
     </tr>
   </tbody>
 </table>

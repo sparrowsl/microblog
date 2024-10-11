@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2022",
     "module": "NodeNext",
     "strict": true,
     "allowJs": true,
@@ -17,7 +17,6 @@
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    /* test */
     "noImplicitReturns": true
   }
 }

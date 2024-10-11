@@ -1,5 +1,4 @@
 import { PUBLIC_API_HOST } from "$env/static/public";
-import { get_current_user } from "$lib/cookies";
 import { error } from "@sveltejs/kit";
 
 /** @type {import("./$types").PageLoad} */
@@ -23,7 +22,6 @@ export async function load({ fetch, params }) {
   data.user.avatar = `https://robohash.org/${data.user.email}`;
 
   return {
-    current_user: get_current_user(),
     user: data.user,
     posts: get_posts(),
   };
