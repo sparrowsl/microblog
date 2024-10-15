@@ -19,9 +19,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
         working-directory: .
 
       - name: Run biome check
         run: npm run biome:check
+        working-directory: .
+
+      - name: Running tests...
+        run: npm run test
         working-directory: .
