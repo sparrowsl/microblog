@@ -11,7 +11,13 @@ const { data } = $props();
 	<h1 class="font-bold text-xl mb-5">Edit Profile</h1>
 
 	<form action="" method="post" use:enhance>
-		<fieldset>
+		<input
+			type="hidden"
+			name="old_name"
+			id="old_name"
+			value={data.user?.username}
+		/>
+		<fieldset class="grid gap-5">
 			<div>
 				<label for="username" class="block text-sm mb-2 dark:text-white">
 					Username
@@ -34,7 +40,8 @@ const { data } = $props();
 					id="about_me"
 					name="about_me"
 					value={data.user?.about_me}
-					class="py-3 px-4 block w-full border-gray-200 rounded min-h-20 text-sm disabled:opacity-50 disabled:pointer-events-none"
+					rows="5"
+					class="py-3 px-4 block w-full border-gray-200 rounded min-h-20 text-sm disabled:opacity-50 disabled:pointer-events-none resize-none text-sm"
 				></textarea>
 			</div>
 

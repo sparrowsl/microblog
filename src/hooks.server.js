@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
 
 import { config } from "$lib/server/config.js";
-import { db } from "$lib/server/db/drizzle";
-import { userTable } from "$lib/server/db/schema";
+import { db } from "$lib/server/db/drizzle.js";
+import { userTable } from "$lib/server/db/schema.js";
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
