@@ -18,18 +18,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install client dependencies
+      - name: Install dependencies
         run: npm install
-        working-directory: ./client
+        working-directory: .
 
-      - name: Run biome check on client
+      - name: Run biome check
         run: npm run biome:check
-        working-directory: ./client
-
-      - name: Install server dependencies
-        run: npm install
-        working-directory: ./api
-
-      - name: Run biome check on api
-        run: npm run biome:check
-        working-directory: ./api
+        working-directory: .

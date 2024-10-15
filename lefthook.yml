@@ -10,14 +10,7 @@ output:
   - skips
 
 pre-commit:
-  parallel: true
   commands:
-    client-check:
-      root: "client/"
+    check:
       glob: "*.{js,ts,svelte,html,css}"
-      run: npm run biome:check {all_files}
-
-    api-check:
-      root: "api/"
-      glob: "*.{js,ts}"
       run: npm run biome:check {all_files}

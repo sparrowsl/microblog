@@ -1,0 +1,47 @@
+{
+	"name": "microblog",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+		"test": "vitest run",
+		"biome:check": "biome check --write ./src",
+		"db:push": "drizzle-kit push",
+		"db:migrate": "drizzle-kit migrate",
+		"db:drop": "drizzle-kit drop",
+		"db:generate": "drizzle-kit generate",
+		"db:studio": "drizzle-kit studio --verbose"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.3",
+		"@sveltejs/adapter-node": "^5.2.6",
+		"@sveltejs/adapter-static": "^3.0.5",
+		"@sveltejs/kit": "^2.6.4",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.7",
+		"@tailwindcss/forms": "^0.5.9",
+		"@tailwindcss/vite": "^4.0.0-alpha.26",
+		"drizzle-kit": "^0.25.0",
+		"svelte": "^5.0.0-next.264",
+		"svelte-check": "^4.0.4",
+		"tailwindcss": "^4.0.0-alpha.26",
+		"typescript": "^5.6.3",
+		"vite": "^5.4.8",
+		"vitest": "^2.1.2"
+	},
+	"type": "module",
+	"engineStrict": true,
+	"dependencies": {
+		"argon2": "^0.41.1",
+		"better-sqlite3": "^11.3.0",
+		"dotenv": "^16.4.5",
+		"drizzle-orm": "^0.34.1",
+		"iconify-icon": "^2.1.0",
+		"jsonwebtoken": "^9.0.2",
+		"universal-cookie": "^7.2.1",
+		"zod": "^3.23.8"
+	}
+}

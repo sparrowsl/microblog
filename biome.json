@@ -6,22 +6,18 @@
   "formatter": {
     "lineWidth": 100,
     "indentStyle": "space",
-    "ignore": [
-      "node_modules"
-    ]
+    "ignore": ["node_modules", ".svelte-kit"]
   },
   "javascript": {
     "formatter": {
       "bracketSameLine": true,
       "quoteStyle": "double",
-      "lineWidth": 100,
+      "lineWidth": 120,
       "semicolons": "always"
     }
   },
   "linter": {
-    "ignore": [
-      "node_modules"
-    ],
+    "ignore": ["node_modules", ".svelte-kit"],
     "rules": {
       "recommended": true,
       "a11y": {
@@ -54,10 +50,10 @@
       "style": {
         "recommended": true,
         "noImplicitBoolean": "error",
-        "noNegationElse": "warn",
+        "noNegationElse": "error",
         "noShoutyConstants": "error",
         "useBlockStatements": "error",
-        "useCollapsedElseIf": "warn",
+        "useCollapsedElseIf": "error",
         "useForOf": "warn",
         "useShorthandAssign": "warn",
         "useSingleCaseStatement": "error"
