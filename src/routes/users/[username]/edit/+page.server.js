@@ -5,10 +5,11 @@ import { db } from "$lib/server/db/drizzle.js";
 import { userTable } from "$lib/server/db/schema.js";
 
 /** @type {import("./$types").PageServerLoad} */
-export async function load({ params, locals }) {
+export async function load({ params, locals, parent }) {
   if (!locals.user) {
     redirect(307, "/");
   }
+  await parent();
 
   const user = await db.query.userTable.findFirst({
     where: eq(userTable.username, params.username),
@@ -26,7 +27,7 @@ export async function load({ params, locals }) {
     redirect(307, "/");
   }
 
-  return { user, current_user: locals.user };
+  return { user };
 }
 
 /** @type {import('./$types').Actions} */

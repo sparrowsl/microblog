@@ -5,7 +5,9 @@ import { db } from "$lib/server/db/drizzle.js";
 import { postsTable, userTable } from "$lib/server/db/schema.js";
 
 /** @type {import("./$types").PageServerLoad} */
-export async function load({ params, locals }) {
+export async function load({ params, parent }) {
+  await parent();
+
   /** @returns {Promise<import("$lib/types").Post[]>} */
   async function get_posts() {
     return db.query.postsTable.findMany({
@@ -28,7 +30,6 @@ export async function load({ params, locals }) {
   }
 
   return {
-    current_user: locals.user,
     user: {
       ...user,
       avatar: `https://robohash.org/${user?.email}`,

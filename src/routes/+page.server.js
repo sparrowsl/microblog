@@ -1,7 +1,9 @@
 import { redirect } from "@sveltejs/kit";
 
 /** @type {import("./$types").PageServerLoad} */
-export async function load({ locals }) {
+export async function load({ parent }) {
+  await parent();
+
   const posts = [
     {
       author: { username: "John" },
@@ -13,7 +15,7 @@ export async function load({ locals }) {
     },
   ];
 
-  return { posts, current_user: locals.user };
+  return { posts };
 }
 
 /** @type {import("./$types").Actions} */
