@@ -21,6 +21,15 @@ export const usersRelations = relations(userTable, ({ many }) => ({
   posts: many(postsTable),
 }));
 
+export const followersTable = sqliteTable("followers", {
+  follower_id: int()
+    .references(() => userTable.id)
+    .primaryKey(),
+  followed_id: int()
+    .references(() => userTable.id)
+    .primaryKey(),
+});
+
 export const postsTable = sqliteTable("posts", {
   id: int().primaryKey({ autoIncrement: true }),
   body: text(),
